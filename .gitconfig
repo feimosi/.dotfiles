@@ -1,0 +1,16 @@
+[user]
+    name = Marek Grzybek
+    email = feimosi@onet.pl
+[credential]
+    helper = wincred
+[core]
+    autocrlf = true
+[push]
+    default = simple
+[alias]
+    a = add
+    l = log --graph --oneline
+    touched = diff-tree -r --name-only --no-commit-id
+    s = status -s -b --
+    c = checkout
+    cp = cherry-pick
