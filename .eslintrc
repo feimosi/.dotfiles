@@ -1,0 +1,36 @@
+{
+    "env": {
+        "browser": true,
+        "jasmine": true,
+        "mocha": true
+    },
+    "globals": {
+        "inject": true
+    },
+    "extends": [
+        "angular",
+        "airbnb/base"
+    ],
+    "rules": {
+        "camelcase": [2, {
+            "properties": "always"
+        }],
+        "indent": [2, 4],
+        "comma-dangle": [2, "never"],
+        "strict": [1, "function"],
+        "space-before-function-paren": [2, {
+            "anonymous": "always",
+            "named": "never"
+        }],
+        "func-names": 0,
+        "no-var": 0,
+        "vars-on-top": 0,
+        "id-length": [2, {
+            "exceptions": ["i", "j", "x", "y", "$", "_"]
+        }],
+        "wrap-iife": [2, "outside"]
+    },
+    "ecmaFeatures": {
+        "modules": false
+    }
+}
