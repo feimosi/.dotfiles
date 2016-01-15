@@ -8,7 +8,7 @@
 [push]
     default = simple
 [alias]
-    ahelp = config --global --get-regexp alias
+    qwe = config --global --get-regexp alias
     a = add
     aa = add --all
     abort = reset --hard HEAD
@@ -19,16 +19,19 @@
     c = checkout
     cb = checkout -b
     cm = commit -m
-    ca = commit -a --amend -C HEAD
+    cma = commit -a --amend -C HEAD
     cp = cherry-pick
+    d = diff
     f = fetch
     l = log --graph --oneline --decorate
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     lh = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
     m = merge
-    mm = merge --no-ff
+    mtw = merge --no-ff
+    mff = merge --ff-only
     p = push
     r = rebase
     s = status --short --branch --
-    tg = tag -a
+    t = tag -a
     touched = diff-tree -r --name-only --no-commit-id
+    up = pull
