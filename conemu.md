@@ -2,7 +2,8 @@
 
 ## PowerShell
 ```sh
-powershell.exe -noexit -command "$host.ui.RawUI.WindowTitle = 'MongoDB Server'; cd C:\db\; mongod"
+powershell.exe -noexit -command "$host.ui.RawUI.WindowTitle = 'Mongo Server'; cd C:\db\; mongod"
+powershell.exe -noexit -command "$host.ui.RawUI.WindowTitle = 'Mongo Shell'; Start-Sleep -s 2; mongo"
 powershell.exe -noexit -command "$host.ui.RawUI.WindowTitle = 'Gulp'; cd C:\Project\; gulp serve"
 powershell.exe -noexit -command "$host.ui.RawUI.WindowTitle = 'Karma'; cd C:\Project\; karma start"
 ```
