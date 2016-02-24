@@ -11,17 +11,24 @@
     qwe = config --global --get-regexp alias
     a = add
     aa = add --all
-    abort = reset --hard HEAD
+    ap = add --patch
+    au = add --update
     b = branch
     ba = branch -a
     bd = branch -d
+    bD = branch -D
     bv = branch --verbose
     c = checkout
     cb = checkout -b
-    cm = commit -m
-    cma = commit -a --amend -C HEAD
+    cm = commit
+    cmm = commit -m
+    cma = commit --amend
+    fix = commit -a --amend -C HEAD
     cp = cherry-pick
     d = diff
+    ds = diff --staged
+    # show files that have changed between two branches (git dbr master..branch)
+    dbf = diff --name-status
     f = fetch
     l = log --graph --oneline --decorate
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -30,8 +37,32 @@
     mtw = merge --no-ff
     mff = merge --ff-only
     p = push
+    up = pull
     r = rebase
     s = status --short --branch --
+    sp = stash pop
+    sw = stash save
+    sl = stash list
     t = tag -a
+    # undo a commit
+    undo = reset --soft HEAD~1
+    # clear the working area
+    abort = reset --hard HEAD
+    # show what I did today
+    today = "!sh -c 'git log --reverse --no-merges --oneline --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
+    # show what I did today with details
+    today-long = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
+    # show what was done today
+    today-all = "!sh -c 'git log --reverse --no-merges --oneline --branches=* --date=local --after=\"yesterday 11:59PM\"'"
+    # show what I did yesterday
+    yesterday = "!sh -c 'git log --reverse --no-merges --oneline --branches=* --date=local --after=\"yesterday 12:01AM\" --author=\"`git config --get user.name`\"'"
+    # show what was done yesterday
+    yesterday-all = "!sh -c 'git log --reverse --no-merges --oneline --branches=* --date=local --after=\"yesterday 12:01AM\"'"
+    # show the last 10 log messages pretty-printed
+    ten = "!git --no-pager log --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative -n 10"
+    # show files affected by a specified commit
     touched = diff-tree -r --name-only --no-commit-id
-    up = pull
+    # see the outgoing commits/unpushed commits
+    outgoing = log master@{u}..
+    # show number of commits per contributer, sorted
+    count = shortlog -sn
