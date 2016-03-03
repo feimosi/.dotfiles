@@ -8,42 +8,55 @@
 [push]
     default = simple
 [alias]
+    # List all aliases
     qwe = config --global --get-regexp alias
+
     a = add
     aa = add --all
     ap = add --patch
     au = add --update
+
     b = branch
     ba = branch -a
     bd = branch -d
-    bD = branch -D
+    bdf = branch -D
     bv = branch --verbose
+
     c = checkout
     cb = checkout -b
+
     cm = commit
     cmm = commit -m
     cma = commit --amend
     fix = commit -a --amend -C HEAD
+
     cp = cherry-pick
+
     d = diff
     ds = diff --staged
-    # show files that have changed between two branches (git dbr master..branch)
     dbf = diff --name-status
+
     f = fetch
+
     l = log --graph --oneline --decorate
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     lh = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+
     m = merge
     mtw = merge --no-ff
     mff = merge --ff-only
+
     p = push
     up = pull
     r = rebase
     s = status --short --branch --
+
     sp = stash pop
     sw = stash save
     sl = stash list
+
     t = tag -a
+
     # undo a commit
     undo = reset --soft HEAD~1
     # clear the working area
