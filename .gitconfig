@@ -39,6 +39,7 @@
     f = fetch
 
     l = log --graph --oneline --decorate
+    la = log --graph --oneline --decorate --all
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     lh = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 
@@ -52,7 +53,8 @@
     s = status --short --branch --
 
     sp = stash pop
-    sw = stash save
+    sa = stash apply
+    ss = stash save
     sl = stash list
 
     t = tag -a
