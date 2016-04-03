@@ -48,8 +48,12 @@
     mff = merge --ff-only
 
     p = push
-    up = pull
+
     r = rebase
+    ra = rebase --abort
+    rc = rebase --continue
+    rs = rebase --skip
+ 
     s = status --short --branch --
 
     sp = stash pop
@@ -58,6 +62,7 @@
     sl = stash list
 
     t = tag -a
+    up = pull
 
     # undo a commit
     undo = reset --soft HEAD~1
