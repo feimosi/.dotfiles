@@ -1,5 +1,7 @@
 alias g='git'
 alias gs='g s'
+alias gl='g l'
+alias gd='g d'
 alias go='npm start'
 alias n='npm'
 alias ng='npm -g'
