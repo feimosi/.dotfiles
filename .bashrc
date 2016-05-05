@@ -1,9 +1,16 @@
+alias ..="cd .."
+alias cd..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 alias g='git'
 alias gaa='g aa'
 alias gc='g c'
+alias gcmm='g cmm'
 alias gd='g d'
 alias gds='g ds'
-alias gd='g f'
+alias gf='g f'
 alias gl='g l'
 alias gs='g s'
 alias fireup='git pull && npm install && npm start'
