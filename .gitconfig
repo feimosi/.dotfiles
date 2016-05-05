@@ -7,6 +7,24 @@
     autocrlf = true
 [push]
     default = simple
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = cyan
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
 [alias]
     # List all aliases
     qwe = config --global --get-regexp alias
@@ -33,15 +51,17 @@
     cp = cherry-pick
 
     d = diff
+    df = diff --name-status # File diff
     ds = diff --staged
-    dbf = diff --name-status
+    dw = diff --word-diff=plain
 
     f = fetch
 
     l = log --graph --oneline --decorate
     la = log --graph --oneline --decorate --all
+    ll = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    lh = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    lh = log --pretty=format:"%C(green)%h\\ %C(yellow)[%cr]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 
     m = merge
     mtw = merge --no-ff
@@ -80,6 +100,8 @@
     yesterday-all = "!sh -c 'git log --reverse --no-merges --oneline --branches=* --date=local --after=\"yesterday 12:01AM\"'"
     # show the last 10 log messages pretty-printed
     ten = "!git --no-pager log --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative -n 10"
+    # list all the commits of a specific person for the last week
+    of = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since='1 week ago' --author
     # show files affected by a specified commit
     touched = diff-tree -r --name-only --no-commit-id
     # see the outgoing commits/unpushed commits
