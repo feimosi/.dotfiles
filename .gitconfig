@@ -81,7 +81,7 @@
     sl = stash list
 
     t = tag -a
-    up = pull
+    up = pull --rebase
 
     # undo a commit
     undo = reset --soft HEAD~1
