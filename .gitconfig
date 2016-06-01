@@ -1,10 +1,9 @@
 [user]
     name = Marek Grzybek
     email = feimosi@onet.pl
-[credential]
-    helper = wincred
 [core]
-    autocrlf = true
+    autocrlf = input
+    editor = vim
 [push]
     default = simple
 [color]
