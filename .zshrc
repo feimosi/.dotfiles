@@ -1,3 +1,7 @@
+ZSH_THEME="robbyrussell"
+
+plugins=(git)
+
 alias ..="cd .."
 alias cd..="cd .."
 alias ...="cd ../.."
