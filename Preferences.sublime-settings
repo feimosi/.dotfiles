@@ -1,18 +1,19 @@
 {
+	"always_show_minimap_viewport": true,
 	"binary_file_patterns":
 	[
 		"node_modules/*",
 		"nlpkitt/*",
 		"ansible/*"
 	],
-	"theme": "Material-Theme.sublime-theme",
+	"bold_folder_labels": true,
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"font_options":
 	[
 		"gray_antialias",
-		"subpixel_antialias" 
+		"subpixel_antialias"
 	],
-	"font_size": 8,
+	"font_size": 10,
 	"ignored_packages":
 	[
 		"Vintage"
@@ -22,15 +23,14 @@
 		"draw_normal",
 		"draw_active"
 	],
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
+	"material_theme_compact_panel": true,
 	"material_theme_compact_sidebar": true,
 	"material_theme_contrast_mode": true,
 	"material_theme_small_tab": true,
-	"material_theme_compact_panel": true,
 	"overlay_scroll_bars": "enabled",
-	"line_padding_bottom": 3,
-	"line_padding_top": 3,
-	"always_show_minimap_viewport": true,
-	"bold_folder_labels": true,
 	"save_on_focus_lost": true,
-	"word_wrap": true,
+	"theme": "Material-Theme.sublime-theme",
+	"word_wrap": true
 }
