@@ -41,6 +41,7 @@ alias grc='g rc'
 alias grs='g rs'
 alias gs='g s'
 alias gup='g up'
+alias branches='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --pretty=format:"%Cred %cn %>|(40) %Cblue %ar %>|(80) %Creset" $branch | head -n 1` $branch; done | sort -r'
 
 alias fireup='git pull && npm update && npm start'
 alias go='npm start'
