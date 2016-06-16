@@ -4,8 +4,11 @@
 [core]
     autocrlf = input
     editor = vim
+    pager = diff-so-fancy | less --tabs=4 -R --pattern='^(added|deleted|modified): '
 [push]
     default = simple
+[diff]
+    compactionHeuristic = true
 [color]
     branch = auto
     diff = auto
@@ -107,3 +110,8 @@
     outgoing = log master@{u}..
     # show number of commits per contributer, sorted
     count = shortlog -sn
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
