@@ -77,6 +77,7 @@
     mff = merge --ff-only
 
     p = push
+    pu = pull
 
     r = rebase
     ra = rebase --abort
