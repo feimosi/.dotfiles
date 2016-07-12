@@ -1,6 +1,6 @@
 ZSH_THEME="robbyrussell"
 
-plugins=(git)
+plugins=(git npm nyan vagrant archlinux frontend-search)
 
 alias ..="cd .."
 alias cd..="cd .."
@@ -28,19 +28,32 @@ alias gcma='g cma'
 alias gfix='g fix'
 alias gcp='g cp'
 alias gd='g d'
+alias gdf='g df'
 alias gds='g ds'
 alias gdw='g dw'
 alias gf='g f'
 alias gl='g l'
 alias gla='g la'
 alias gll='g ll'
+alias gls='g ls'
+alias glh='g lh'
+alias gm='g m'
+alias gmtw='g mtw'
+alias gmff='g mff'
 alias gp='g p'
+alias gpu='g pu'
 alias gr='g r'
 alias gra='g ra'
 alias grc='g rc'
 alias grs='g rs'
 alias gs='g s'
+alias gsp='g sp'
+alias gsa='g sa'
+alias gss='g ss'
+alias gsl='g sl'
 alias gup='g up'
+alias gundo='g undo'
+alias gabort='g abort'
 alias branches='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --pretty=format:"%Cred %cn %>|(40) %Cblue %ar %>|(80) %Creset" $branch | head -n 1` $branch; done | sort -r'
 
 alias fireup='git pull && npm update && npm start'
