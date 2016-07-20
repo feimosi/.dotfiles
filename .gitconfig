@@ -65,6 +65,7 @@
     dw = diff --word-diff=plain
 
     f = fetch
+    fp = fetch --prune
 
     l = log --graph --oneline --decorate
     la = log --graph --oneline --decorate --all
