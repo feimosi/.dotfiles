@@ -78,6 +78,8 @@
     mff = merge --ff-only
 
     p = push
+    # Push and setup remote tracking
+    pf = "!gitbranchname() { git symbolic-ref --short HEAD; }; gitpushupstream() { git push --set-upstream origin `gitbranchname`; }; gitpushupstream"
     pu = pull
 
     r = rebase
