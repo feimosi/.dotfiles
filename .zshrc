@@ -1,6 +1,6 @@
 ZSH_THEME="robbyrussell"
 
-plugins=(git npm nyan vagrant archlinux frontend-search)
+plugins=(git npm nyan vagrant archlinux frontend-search zsh-syntax-highlighting)
 
 alias ..="cd .."
 alias cd..="cd .."
