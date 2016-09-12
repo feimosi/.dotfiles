@@ -1,6 +1,13 @@
-ZSH_THEME="robbyrussell"
+plugins=(git npm vagrant archlinux frontend-search zsh-syntax-highlighting)
 
-plugins=(git npm nyan vagrant archlinux frontend-search zsh-syntax-highlighting)
+ZSH_THEME="robbyrussell"
+export ZSH=$HOME/.oh-my-zsh
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+
+source $ZSH/oh-my-zsh.sh
+
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 
 alias ..="cd .."
 alias cd..="cd .."
@@ -69,5 +76,5 @@ alias ngout='npm -g outdated'
 function t() {
  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
  # pass additional args after
- tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
+ tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 25 -L ${1:-3} -aC $2
 }
