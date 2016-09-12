@@ -8,7 +8,7 @@
 [pager]
     diff = diff-so-fancy | less --tabs=4 -R --pattern='^(added|deleted|modified): '
 [push]
-    default = simple
+    default = upstream
 [diff]
     compactionHeuristic = true
 [color]
