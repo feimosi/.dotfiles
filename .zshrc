@@ -1,4 +1,4 @@
-plugins=(git npm vagrant archlinux frontend-search zsh-syntax-highlighting)
+plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting)
 
 ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
@@ -9,8 +9,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-alias ..="cd .."
 alias cd..="cd .."
+alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
@@ -78,3 +78,7 @@ function t() {
  # pass additional args after
  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 25 -L ${1:-3} -aC $2
 }
+
+############################
+# Machine specific aliases #
+############################
