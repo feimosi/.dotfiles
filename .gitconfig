@@ -78,16 +78,21 @@
     mff = merge --ff-only
 
     p = push
+    pf = push -f
     # Push and setup remote tracking
-    pf = "!gitbranchname() { git symbolic-ref --short HEAD; }; gitpushupstream() { git push --set-upstream origin `gitbranchname`; }; gitpushupstream"
+    pr = "!gitbranchname() { git symbolic-ref --short HEAD; }; gitpushupstream() { git push --set-upstream origin `gitbranchname`; }; gitpushupstream"
+
     pu = pull
+    up = pull --rebase
 
     r = rebase
     ra = rebase --abort
     rc = rebase --continue
     rs = rebase --skip
- 
+
     s = status --short --branch --
+
+    sh = show
 
     sp = stash pop
     sa = stash apply
@@ -95,7 +100,6 @@
     sl = stash list
 
     t = tag -a
-    up = pull --rebase
 
     # undo a commit
     undo = reset --soft HEAD~1
