@@ -1,8 +1,12 @@
 plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting)
 
-ZSH_THEME="robbyrussell"
+export ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,12 +54,14 @@ alias gmtw='g mtw'
 alias gmff='g mff'
 alias gp='g p'
 alias gpf='g pf'
+alias gpr='g pr'
 alias gpu='g pu'
 alias gr='g r'
 alias gra='g ra'
 alias grc='g rc'
 alias grs='g rs'
 alias gs='g s'
+alias gsh='g sh'
 alias gsp='g sp'
 alias gsa='g sa'
 alias gss='g ss'
@@ -77,6 +83,22 @@ function t() {
  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
  # pass additional args after
  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 25 -L ${1:-3} -aC $2
+}
+
+# List commands in history (grouped by the first two 'words', e.g., "git
+# commit" or "cd ~") and ordered from most-used to least-used.
+function command-frequency() {
+  cut -d ';' -f 2 < ~/.zsh_history 2> /dev/null | awk '{print $1 " " $2}' | sort | uniq -c | sort -rn
+}
+
+# List the most-frequently used commands
+function top-commands() {
+  command-frequency | head -n 30
+}
+
+# List the most-frequently used non-Git commands
+function top-non-git() {
+  command-frequency | grep -v ' g ' | grep -v ' git ' | head -n 30
 }
 
 ############################
