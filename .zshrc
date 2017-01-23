@@ -8,6 +8,9 @@ export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 source $ZSH/oh-my-zsh.sh
 
 alias zshconfig="vim ~/.zshrc"
