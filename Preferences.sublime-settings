@@ -7,11 +7,18 @@
 		"ansible/*"
 	],
 	"bold_folder_labels": true,
+	"close_windows_when_empty": false,
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"font_options":
 	[
 		"gray_antialias",
 		"subpixel_antialias"
+	],
+	"folder_exclude_patterns": [
+		".svn", ".git", ".hg", "CVS",
+		"node_modules",
+		"bower_components",
+		"dist"
 	],
 	"font_size": 10,
 	"ignored_packages":
@@ -32,5 +39,6 @@
 	"overlay_scroll_bars": "enabled",
 	"save_on_focus_lost": true,
 	"theme": "Material-Theme.sublime-theme",
+	"typescript_tsdk": "/usr/lib/node_modules/typescript/lib",
 	"word_wrap": true
 }
