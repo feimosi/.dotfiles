@@ -47,6 +47,8 @@ alias gcb='g cb'
 alias gcm='g cm'
 alias gcmm='g cmm'
 alias gcma='g cma'
+alias gcmf='g cmf'
+alias gcms='g cms'
 alias gfix='g fix'
 
 alias gcp='g cp'
@@ -80,6 +82,7 @@ alias gr='g r'
 alias gra='g ra'
 alias grc='g rc'
 alias grs='g rs'
+alias gras='g ras'
 
 alias gs='g s'
 
