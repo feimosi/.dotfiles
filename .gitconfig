@@ -11,6 +11,7 @@
     default = upstream
 [diff]
     compactionHeuristic = true
+    renameLimit = 2000
 [color]
     branch = auto
     diff = auto
@@ -37,6 +38,8 @@
 [alias]
     # List all aliases
     qwe = config --global --get-regexp alias
+    # Sorted aliases
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
 
     a = add
     aa = add --all
@@ -55,6 +58,8 @@
     cm = commit
     cmm = commit -m
     cma = commit --amend
+    cmf = commit --fixup
+    cms = commit --squash
     fix = commit -a --amend -C HEAD
 
     cp = cherry-pick
@@ -88,6 +93,7 @@
     ra = rebase --abort
     rc = rebase --continue
     rs = rebase --skip
+    ras = rebase -i --autosquash
 
     s = status --short --branch --
 
