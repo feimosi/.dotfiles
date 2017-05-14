@@ -130,3 +130,7 @@
     outgoing = log master@{u}..
     # show number of commits per contributer, sorted
     count = shortlog -sn
+[rerere]
+    enabled = true
+[init]
+    templatedir = ~/.git-templates
