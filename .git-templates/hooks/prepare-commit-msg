@@ -1,4 +1,5 @@
 #!/bin/sh
+# Prepend ticket ID to the commit message
 
 if [ -z "$BRANCHES_TO_SKIP" ]; then
   BRANCHES_TO_SKIP=(master develop dev test)
@@ -11,6 +12,15 @@ MSG_PREFIX=$(printf "%s" "${BRANCH_NAME}" | cut -d "-" -f -2)
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" $1)
 
-if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]; then 
-  sed -i.bak -e "1s/^/$MSG_PREFIX: /" $1
+COMMIT_FIRST_LINE=$(head -n1 $1)
+
+# Only use for generic commits (skip amend, squah, cherry-pick etc.)
+if [ -n "$COMMIT_FIRST_LINE"  ] ;then
+  MSG_PREFIX=""
+else
+  MSG_PREFIX="${MSG_PREFIX}:"
+fi
+
+if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]; then
+  sed -i.bak -e "1s/^/$MSG_PREFIX/" $1
 fi
