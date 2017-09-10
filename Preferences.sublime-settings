@@ -3,7 +3,7 @@
 	"binary_file_patterns":
 	[
 		"node_modules/*",
-		"ansible/*"
+		"ansible/*",
 		"public/lib/*"
 	],
 	"bold_folder_labels": true,
