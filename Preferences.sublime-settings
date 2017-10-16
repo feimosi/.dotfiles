@@ -9,8 +9,12 @@
 	"bold_folder_labels": true,
 	"close_windows_when_empty": false,
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
-	"folder_exclude_patterns": [
-		".svn", ".git", ".hg", "CVS",
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
 		"node_modules",
 		"bower_components",
 		"dist"
@@ -20,7 +24,7 @@
 		"gray_antialias",
 		"subpixel_antialias"
 	],
-	"font_size": 10,
+	"font_size": 9,
 	"ignored_packages":
 	[
 		"Vintage"
