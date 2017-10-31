@@ -77,6 +77,7 @@
     ll = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     lh = log --pretty=format:"%C(green)%h\\ %C(yellow)[%cr]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    lf = log --full-diff -p --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
     m = merge
     mtw = merge --no-ff
@@ -88,12 +89,15 @@
 
     pu = pull
     up = pull --rebase
+    upas = pull --rebase --autostash
 
     r = rebase
     ra = rebase --abort
     rc = rebase --continue
     rs = rebase --skip
     ras = rebase -i --autosquash
+
+    rt = reset
 
     s = status --short --branch --
 
