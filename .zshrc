@@ -1,6 +1,8 @@
-plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting)
+plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting alias-tips)
 
-export ZSH_THEME="robbyrussell"
+# Previous theme: "robbyrussell"
+export ZSH_THEME="powerlevel9k/powerlevel9k"
+export POWERLEVEL9K_MODE='nerdfont-complete'
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
@@ -66,6 +68,7 @@ alias gla='g la'
 alias gll='g ll'
 alias gls='g ls'
 alias glh='g lh'
+alias glf='g lf'
 
 alias gm='g m'
 alias gmtw='g mtw'
@@ -77,12 +80,15 @@ alias gpr='g pr'
 
 alias gpu='g pu'
 alias gup='g up'
+alias gupas='g upas'
 
 alias gr='g r'
 alias gra='g ra'
 alias grc='g rc'
 alias grs='g rs'
 alias gras='g ras'
+
+alias grt='g rt'
 
 alias gs='g s'
 
@@ -100,6 +106,8 @@ alias gabort='g abort'
 
 alias branches='for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --pretty=format:"%Cred %cn %>|(40) %Cblue %ar %>|(80) %Creset" $branch | head -n 1` $branch; done | sort -r'
 
+alias q='gs'
+
 #######################
 # Development aliases #
 #######################
@@ -111,6 +119,10 @@ alias n='npm'
 alias nout='npm outdated'
 alias ng='npm -g'
 alias ngout='npm -g outdated'
+
+alias dc='docker-compose'
+alias dcrun='dc run'
+alias dcup='dc up'
 
 function t() {
  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
@@ -133,6 +145,9 @@ function top-commands() {
 function top-non-git() {
   command-frequency | grep -v ' g ' | grep -v ' git ' | head -n 30
 }
+
+# Run locally installed npm executables
+function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
 
 ############################
 # Machine specific aliases #
