@@ -1,8 +1,9 @@
-plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting alias-tips)
+plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting alias-tips virtualenv virtualenvwrapper)
 
 # Previous theme: "robbyrussell"
 export ZSH_THEME="powerlevel9k/powerlevel9k"
 export POWERLEVEL9K_MODE='nerdfont-complete'
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
@@ -148,6 +149,8 @@ function top-non-git() {
 
 # Run locally installed npm executables
 function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
+
+source /usr/share/nvm/init-nvm.sh
 
 ############################
 # Machine specific aliases #
