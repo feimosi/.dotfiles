@@ -6,6 +6,7 @@ export POWERLEVEL9K_MODE='nerdfont-complete'
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export BROWSER=/opt/google/chrome-unstable/google-chrome-unstable
 
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
@@ -26,6 +27,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias l="ls -lah"
+alias mux='tmuxinator'
+alias muxs='tmuxinator s'
 
 ###############
 # Git aliases #
