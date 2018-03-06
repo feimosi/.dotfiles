@@ -1,0 +1,20 @@
+name: Sample
+root: ~/Projects/Sample/
+
+windows:
+  - shell:
+      layout: tiled
+      panes:
+        - npm run api
+        - git status
+        - npm run webpack
+        - 
+  - more_things:
+      layout: main-vertical
+      panes:
+        - super_powers:
+          - 
+        - run_several_commands:
+          - cd ~/Projects
+          - ls
+          - whoami
