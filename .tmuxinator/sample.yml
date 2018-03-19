@@ -2,19 +2,18 @@ name: Sample
 root: ~/Projects/Sample/
 
 windows:
-  - shell:
+  - main:
       layout: tiled
       panes:
         - npm run api
         - git status
-        - npm run webpack
+        - npm start
         - 
-  - more_things:
+  - other:
       layout: main-vertical
       panes:
-        - super_powers:
-          - 
-        - run_several_commands:
-          - cd ~/Projects
+        -
+        - several_commands:
+          - cd ~
           - ls
           - whoami
