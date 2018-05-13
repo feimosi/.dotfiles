@@ -47,16 +47,16 @@
     au = add --update
 
     b = branch
-    ba = branch -a
-    bd = branch -d
-    bdf = branch -D
+    ba = branch --all
+    bd = branch --delete
+    bdf = branch --delete --force
     bv = branch --verbose
 
     c = checkout
     cb = checkout -b
 
     cm = commit
-    cmm = commit -m
+    cmm = commit --message
     cma = commit --amend
     cmf = commit --fixup
     cms = commit --squash
@@ -138,3 +138,8 @@
     enabled = true
 [init]
     templatedir = ~/.git-templates
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
