@@ -1,4 +1,4 @@
-plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting alias-tips virtualenv virtualenvwrapper)
+plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting alias-tips virtualenv yarn)
 
 # Previous theme: "robbyrussell"
 export ZSH_THEME="powerlevel9k/powerlevel9k"
