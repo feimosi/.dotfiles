@@ -1,12 +1,13 @@
-plugins=(common-aliases fasd git git-extras npm docker archlinux frontend-search zsh-syntax-highlighting alias-tips virtualenv yarn)
+plugins=(common-aliases zsh-completions zsh-autosuggestions fasd dirhistory git git-extras gitfast git-auto-fetch npm node docker archlinux frontend-search zsh-syntax-highlighting alias-tips virtualenv yarn sudo tmuxinator vscode web-search)
 
 # Previous theme: "robbyrussell"
 export ZSH_THEME="powerlevel9k/powerlevel9k"
 export POWERLEVEL9K_MODE='nerdfont-complete'
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 export ZSH=$HOME/.oh-my-zsh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.local/bin"
 export BROWSER=/opt/google/chrome-unstable/google-chrome-unstable
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
 
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
@@ -62,6 +63,7 @@ alias gcp='g cp'
 alias gd='g d'
 alias gdf='g df'
 alias gds='g ds'
+alias gdsw='g dsw'
 alias gdw='g dw'
 
 alias gf='g f'
