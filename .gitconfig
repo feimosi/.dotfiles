@@ -67,6 +67,7 @@
     d = diff
     df = diff --name-status # File diff
     ds = diff --staged
+    dsw = diff --staged --ignore-all-space
     dw = diff --word-diff=plain
 
     f = fetch
