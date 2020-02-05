@@ -139,6 +139,8 @@
     enabled = true
 [init]
     templatedir = ~/.git-templates
+[credential]
+	helper = /usr/lib/git-core/git-credential-gnome-keyring
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
