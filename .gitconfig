@@ -57,6 +57,7 @@
 
     cm = commit
     cmm = commit --message
+    cmmi = commit --no-verify --message
     cma = commit --amend
     cmf = commit --fixup
     cms = commit --squash
