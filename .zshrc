@@ -53,6 +53,7 @@ alias gcb='g cb'
 
 alias gcm='g cm'
 alias gcmm='g cmm'
+alias gcmmi='g cmmi'
 alias gcma='g cma'
 alias gcmf='g cmf'
 alias gcms='g cms'
