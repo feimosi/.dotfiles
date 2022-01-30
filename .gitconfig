@@ -4,8 +4,12 @@
 [core]
     autocrlf = input
     editor = vim
+    #pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
     pager = diff-so-fancy | less --tabs=4 -R
+[interactive]
+    diffFilter = delta --color-only
 [pager]
+    #diff = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' | less --tabs=4 -R #--pattern='^(added|deleted|modified): '
     diff = diff-so-fancy | less --tabs=4 -R --pattern='^(added|deleted|modified): '
 [push]
     default = upstream
@@ -59,7 +63,8 @@
     cmm = commit --message
     cmmi = commit --no-verify --message
     cma = commit --amend
-    cmf = commit --fixup
+    cmf = commit --no-verify --fixup
+    cmfv = commit --fixup
     cms = commit --squash
     fix = commit -a --amend -C HEAD
 
@@ -86,7 +91,7 @@
     mff = merge --ff-only
 
     p = push
-    pf = push -f
+    pf = push --force-with-lease
     pr = "!gitbranchname() { git symbolic-ref --short HEAD; }; gitpushupstream() { git push --set-upstream origin `gitbranchname`; }; gitpushupstream" # Push and setup remote tracking
 
     pu = pull
@@ -141,7 +146,7 @@
 [init]
     templatedir = ~/.git-templates
 [credential]
-	helper = /usr/lib/git-core/git-credential-gnome-keyring
+    helper = /usr/lib/git-core/git-credential-gnome-keyring
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
