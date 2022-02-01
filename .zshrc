@@ -27,6 +27,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias cat="bat"
+alias ls="exa"
 alias l="ls -lah"
 alias mux='tmuxinator'
 alias muxs='tmuxinator s'
@@ -56,6 +58,7 @@ alias gcmm='g cmm'
 alias gcmmi='g cmmi'
 alias gcma='g cma'
 alias gcmf='g cmf'
+alias gcmf='g cmfv'
 alias gcms='g cms'
 alias gfix='g fix'
 
@@ -124,7 +127,7 @@ alias go='npm start'
 alias build='npm run build'
 alias n='npm'
 alias nout='npm outdated'
-alias ng='npm -g'
+alias npmg='npm -g'
 alias ngout='npm -g outdated'
 
 alias dc='docker-compose'
