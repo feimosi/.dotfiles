@@ -721,7 +721,7 @@
 
   ##########[ nordvpn: nordvpn connection status, linux only (https://nordvpn.com/) ]###########
   # NordVPN connection indicator color.
-  typeset -g POWERLEVEL9K_NORDVPN_FOREGROUND=7
+  typeset -g POWERLEVEL9K_NORDVPN_FOREGROUND=0
   typeset -g POWERLEVEL9K_NORDVPN_BACKGROUND=4
   # Hide NordVPN connection indicator when not connected.
   typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_CONTENT_EXPANSION=
@@ -1029,7 +1029,7 @@
   ##############[ nvm: node.js version from nvm (https://github.com/nvm-sh/nvm) ]###############
   # Nvm color.
   typeset -g POWERLEVEL9K_NVM_FOREGROUND=0
-  typeset -g POWERLEVEL9K_NVM_BACKGROUND=5
+  typeset -g POWERLEVEL9K_NVM_BACKGROUND=6
   # Custom icon.
   # typeset -g POWERLEVEL9K_NVM_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
