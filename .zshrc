@@ -5,7 +5,32 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-plugins=(common-aliases zsh-completions zsh-autosuggestions fasd dirhistory git git-extras gitfast git-auto-fetch npm node docker archlinux frontend-search zsh-syntax-highlighting alias-tips virtualenv yarn sudo tmuxinator vscode web-search)
+plugins=(
+  common-aliases 
+  zsh-completions 
+  fasd 
+  dirhistory 
+  git 
+  git-extras 
+  gitfast 
+  git-auto-fetch 
+  npm 
+  node 
+  docker 
+  archlinux 
+  frontend-search 
+  colored-man-pages
+  command-not-found
+  alias-tips 
+  virtualenv 
+  yarn 
+  sudo 
+  tmuxinator 
+  vscode 
+  web-search
+  zsh-autosuggestions 
+  zsh-syntax-highlighting 
+)
 
 # Previous theme: "robbyrussell"
 export ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -39,6 +64,10 @@ alias ls="exa"
 alias l="ls -lah"
 alias mux='tmuxinator'
 alias muxs='tmuxinator s'
+
+alias remove_unused_dependencies='pacman -Rs $(pacman -Qdtq)'
+alias pgadmin='cd ~/pgAdmin && docker-compose up -d && sleep 3 && chromium http://localhost:9201/browser/ &'
+alias docker_cleanup='docker system prune -a --volumes'
 
 ###############
 # Git aliases #
