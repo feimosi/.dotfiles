@@ -109,12 +109,14 @@ alias gdw='g dw'
 alias gf='g f'
 alias gfp='g fp'
 
-alias gl='g l'
-alias gla='g la'
-alias gll='g ll'
-alias gls='g ls'
-alias glh='g lh'
-alias glf='g lf'
+# Use 'true' at the end to prevent PIPE 141 exit code
+# https://www.ingeniousmalarkey.com/2016/07/git-log-exit-code-141.html
+alias gl='g l || true'
+alias gla='g la || true'
+alias gll='g ll || true'
+alias gls='g ls || true'
+alias glh='g lh || true'
+alias glf='g lf || true'
 
 alias gm='g m'
 alias gmtw='g mtw'
