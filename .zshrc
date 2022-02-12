@@ -68,6 +68,9 @@ alias muxs='tmuxinator s'
 alias remove_unused_dependencies='pacman -Rs $(pacman -Qdtq)'
 alias pgadmin='cd ~/pgAdmin && docker-compose up -d && sleep 3 && chromium http://localhost:9201/browser/ &'
 alias docker_cleanup='docker system prune -a --volumes'
+alias find_file='fzf'
+# Search files with ripgrep
+function rr(){ rg -p "$1" | less -RF }
 
 ###############
 # Git aliases #
@@ -111,12 +114,13 @@ alias gfp='g fp'
 
 # Use 'true' at the end to prevent PIPE 141 exit code
 # https://www.ingeniousmalarkey.com/2016/07/git-log-exit-code-141.html
-alias gl='g l || true'
-alias gla='g la || true'
-alias gll='g ll || true'
-alias gls='g ls || true'
-alias glh='g lh || true'
-alias glf='g lf || true'
+unalias gl
+function gl(){ g l "$@" || true }
+function gla(){ g la "$@" || true }
+function gll(){ g ll "$@" || true }
+function gls(){ g ls "$@" || true }
+function glh(){ g lh "$@" || true }
+function glf(){ g lf "$@" || true }
 
 alias gm='g m'
 alias gmtw='g mtw'
