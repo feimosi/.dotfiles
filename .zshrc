@@ -113,14 +113,24 @@ alias gf='g f'
 alias gfp='g fp'
 
 # Use 'true' at the end to prevent PIPE 141 exit code
+# Because of that it needs to be a function
 # https://www.ingeniousmalarkey.com/2016/07/git-log-exit-code-141.html
 unalias gl
 function gl(){ g l "$@" || true }
+compdef _git gl=git-log
 function gla(){ g la "$@" || true }
+compdef _git gla=git-log
 function gll(){ g ll "$@" || true }
+compdef _git gll=git-log
 function gls(){ g ls "$@" || true }
+compdef _git gls=git-log
+unalias glg # Defined in oh-my-zsh gitplugin
+function glg(){ g lg "$@" || true }
+compdef _git glg=git-log
 function glh(){ g lh "$@" || true }
+compdef _git glh=git-log
 function glf(){ g lf "$@" || true }
+compdef _git glf=git-log
 
 alias gm='g m'
 alias gmtw='g mtw'
