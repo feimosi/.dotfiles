@@ -8,6 +8,7 @@ fi
 plugins=(
   common-aliases 
   zsh-completions 
+  nx-completion
   fasd 
   dirhistory 
   git 
@@ -62,8 +63,10 @@ alias .....="cd ../../../.."
 alias cat="bat"
 alias ls="exa"
 alias l="ls -lah"
+alias man='tldr'
 alias mux='tmuxinator'
 alias muxs='tmuxinator s'
+alias qq='yt-dlp'
 
 alias remove_unused_dependencies='pacman -Rs $(pacman -Qdtq)'
 alias pgadmin='cd ~/pgAdmin && docker-compose up -d && sleep 3 && chromium http://localhost:9201/browser/ &'
@@ -71,6 +74,8 @@ alias docker_cleanup='docker system prune -a --volumes'
 alias find_file='fzf'
 # Search files with ripgrep
 function rr(){ rg -p "$1" | less -RF }
+alias system_info='inxi --full --admin --verbosity=7 --filter --no-host'
+alias running_services='systemctl list-units  --type=service  --state=running'
 
 ###############
 # Git aliases #
