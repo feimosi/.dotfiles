@@ -96,6 +96,7 @@ alias gbv='g bv'
 
 alias gc='g c'
 alias gcb='g cb'
+alias gci='g checkout $(git branch | fzf | xargs) '
 
 alias gcm='g cm'
 alias gcmm='g cmm'
