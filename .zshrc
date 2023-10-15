@@ -61,7 +61,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias cat="bat"
-alias ls="exa"
+alias ls="eza"
 alias l="ls -lah"
 alias man='tldr'
 alias mux='tmuxinator'
