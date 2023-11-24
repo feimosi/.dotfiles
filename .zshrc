@@ -37,7 +37,7 @@ plugins=(
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export POWERLEVEL9K_MODE='nerdfont-complete'
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
-export ZSH=/usr/share/oh-my-zsh/
+export ZSH=/usr/share/oh-my-zsh/ # On Ubuntu /home/marek/.oh-my-zsh/
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.local/bin:/home/marek/.local/bin"
 export BROWSER=/opt/google/chrome-unstable/google-chrome-unstable
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
@@ -61,7 +61,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias cat="bat"
-alias ls="eza"
+alias ls="eza" # Previously exa
 alias l="ls -lah"
 alias man='tldr'
 alias mux='tmuxinator'
@@ -217,7 +217,9 @@ function top-non-git() {
 # Run locally installed npm executables
 function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
 
-source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
