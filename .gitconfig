@@ -5,12 +5,12 @@
     autocrlf = input
     editor = vim
     #pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
-    pager = diff-so-fancy | less --tabs=4 -R
+    pager = diff-so-fancy | less --tabs=4 -RF
 [interactive]
     diffFilter = diff-so-fancy --patch
 [pager]
     #diff = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' | less --tabs=4 -R #--pattern='^(added|deleted|modified): '
-    diff = diff-so-fancy | less --tabs=4 -R --pattern='^(added|deleted|modified): '
+    diff = diff-so-fancy | less --tabs=4 -RF --pattern='^(added|deleted|modified): '
 [push]
     default = upstream
 [diff]
