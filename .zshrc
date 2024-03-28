@@ -8,7 +8,6 @@ fi
 plugins=(
   common-aliases 
   zsh-completions 
-  nx-completion
   fasd 
   dirhistory 
   git 
@@ -37,9 +36,15 @@ plugins=(
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export POWERLEVEL9K_MODE='nerdfont-complete'
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
-export ZSH=/usr/share/oh-my-zsh/ # On Ubuntu /home/marek/.oh-my-zsh/
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.local/bin:/home/marek/.local/bin"
-export BROWSER=/opt/google/chrome-unstable/google-chrome-unstable
+
+# Linux
+# export ZSH=/usr/share/oh-my-zsh/ # On Ubuntu /home/marek/.oh-my-zsh/
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:~/.local/bin:/home/marek/.local/bin"
+# export BROWSER=/opt/google/chrome-unstable/google-chrome-unstable
+
+# Mac
+export ZSH="$HOME/.oh-my-zsh" # Path to your oh-my-zsh installation.
+
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=40
 
 export HISTSIZE=100000
@@ -48,6 +53,9 @@ setopt EXTENDED_HISTORY
 
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,6 +68,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias z="j" # autojump
 alias cat="bat"
 alias ls="eza" # Previously exa
 alias l="ls -lah"
@@ -76,6 +85,10 @@ alias find_file='fzf'
 function rr(){ rg -p "$1" | less -RF }
 alias system_info='inxi --full --admin --verbosity=7 --filter --no-host'
 alias running_services='systemctl list-units  --type=service  --state=running'
+
+# Async auto suggestions
+# https://github.com/romkatv/powerlevel10k/issues/1554#issuecomment-1701598955
+unset ZSH_AUTOSUGGEST_USE_ASYNC
 
 ###############
 # Git aliases #
@@ -217,12 +230,21 @@ function top-non-git() {
 # Run locally installed npm executables
 function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
 
+# Linux
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Mac
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 ############################
 # Machine specific aliases #
