@@ -21,7 +21,7 @@ plugins=(
   frontend-search 
   colored-man-pages
   command-not-found
-  alias-tips 
+  you-should-use
   virtualenv 
   yarn 
   sudo 
@@ -35,7 +35,7 @@ plugins=(
 # Previous theme: "robbyrussell"
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export POWERLEVEL9K_MODE='nerdfont-complete'
-export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+# LEFT_PROMPT_ELEMENTS is set in ~/.p10k.zsh, which is sourced later and wins.
 
 # Linux
 # export ZSH=/usr/share/oh-my-zsh/ # On Ubuntu /home/marek/.oh-my-zsh/
@@ -249,3 +249,5 @@ export NVM_DIR="$HOME/.nvm"
 ############################
 # Machine specific aliases #
 ############################
+
+path+=("$HOME/.local/bin"); export PATH

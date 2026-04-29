@@ -1,0 +1,106 @@
+#!/usr/bin/env zsh
+# update-zsh-plugins — fast-forward update oh-my-zsh + all custom plugins/themes
+#
+# What it does:
+#   1. Pulls oh-my-zsh itself.
+#   2. Walks every git-tracked dir under $ZSH/custom/{plugins,themes}/ and
+#      runs `git pull --ff-only` on each.
+#   3. Prints a one-line summary per repo: up-to-date, fast-forwarded N commits,
+#      or skipped with reason (dirty tree, non-FF, no remote).
+#
+# Why fast-forward only:
+#   Avoids surprise merge commits in plugin repos. If a repo can't fast-forward
+#   (rare — usually means upstream rewrote history), the script reports it and
+#   moves on; you can resolve manually.
+#
+# Usage:
+#   update-zsh-plugins             # update everything
+#   update-zsh-plugins --dry-run   # show what's behind without pulling
+#
+# After updating: run `exec zsh` to reload your shell with the new code.
+
+set -u
+
+ZSH_DIR="${ZSH:-$HOME/.oh-my-zsh}"
+CUSTOM_DIR="$ZSH_DIR/custom"
+DRY_RUN=0
+[[ "${1:-}" == "--dry-run" ]] && DRY_RUN=1
+
+if [[ ! -d "$ZSH_DIR/.git" ]]; then
+    echo "error: \$ZSH ($ZSH_DIR) is not a git checkout. nothing to update." >&2
+    exit 1
+fi
+
+# ANSI colors (only if stdout is a tty)
+if [[ -t 1 ]]; then
+    BOLD=$'\e[1m'; DIM=$'\e[2m'; GREEN=$'\e[32m'; YELLOW=$'\e[33m'
+    RED=$'\e[31m'; CYAN=$'\e[36m'; RESET=$'\e[0m'
+else
+    BOLD= DIM= GREEN= YELLOW= RED= CYAN= RESET=
+fi
+
+update_repo() {
+    local dir="$1" name="${1:t}"
+    printf "%s%-32s%s " "$BOLD" "$name" "$RESET"
+
+    # Skip if working tree dirty — pulling could conflict.
+    if [[ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]]; then
+        printf "%sskipped%s (working tree dirty)\n" "$YELLOW" "$RESET"
+        return
+    fi
+
+    # Quietly fetch; report network errors clearly.
+    if ! git -C "$dir" fetch --quiet 2>/dev/null; then
+        printf "%sskipped%s (fetch failed — no remote? offline?)\n" "$YELLOW" "$RESET"
+        return
+    fi
+
+    # Detect the tracked upstream branch (handles main/master/etc).
+    local upstream
+    upstream=$(git -C "$dir" rev-parse --abbrev-ref --symbolic-full-name '@{u}' 2>/dev/null)
+    if [[ -z "$upstream" ]]; then
+        printf "%sskipped%s (no upstream branch)\n" "$YELLOW" "$RESET"
+        return
+    fi
+
+    local behind
+    behind=$(git -C "$dir" rev-list --count "HEAD..$upstream" 2>/dev/null)
+    behind="${behind:-0}"
+
+    if (( behind == 0 )); then
+        printf "%sup-to-date%s\n" "$DIM" "$RESET"
+        return
+    fi
+
+    if (( DRY_RUN )); then
+        printf "%s%d commits behind%s %s%s%s\n" \
+            "$CYAN" "$behind" "$RESET" "$DIM" "($upstream)" "$RESET"
+        return
+    fi
+
+    if git -C "$dir" merge --ff-only "$upstream" >/dev/null 2>&1; then
+        printf "%supdated%s %s(+%d commits)%s\n" \
+            "$GREEN" "$RESET" "$DIM" "$behind" "$RESET"
+    else
+        printf "%sfailed%s (non-fast-forward — resolve manually in %s)\n" \
+            "$RED" "$RESET" "$dir"
+    fi
+}
+
+echo "${BOLD}== oh-my-zsh ==${RESET}"
+update_repo "$ZSH_DIR"
+
+echo
+echo "${BOLD}== custom plugins ==${RESET}"
+for d in "$CUSTOM_DIR"/plugins/*/.git(N); do
+    update_repo "${d:h}"
+done
+
+echo
+echo "${BOLD}== custom themes ==${RESET}"
+for d in "$CUSTOM_DIR"/themes/*/.git(N); do
+    update_repo "${d:h}"
+done
+
+echo
+echo "${DIM}done. run 'exec zsh' to reload.${RESET}"
